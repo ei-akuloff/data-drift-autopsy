@@ -1,0 +1,33 @@
+# Example Pipeline Configuration
+
+name: temporal_drift_monitoring
+enable_localization: true
+enable_rca: false
+
+# Detector configuration
+detector:
+  type: ks_test
+  threshold: 0.05
+  params:
+    correction: bonferroni
+    aggregate_method: max
+
+# Localizer configuration
+localizer:
+  type: univariate
+  params:
+    threshold: 0.05
+    correction: bonferroni
+    top_k: 10
+
+# Optional: RCA configuration
+# rca:
+#   type: shap
+#   params:
+#     n_background_samples: 100
+#     n_test_samples: 100
+
+# Metadata
+metadata:
+  description: "Temporal drift monitoring for ACS Income dataset"
+  version: "1.0"

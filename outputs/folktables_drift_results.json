@@ -1,0 +1,3017 @@
+{
+  "2015": {
+    "actual_accuracy": 0.7925430057340979,
+    "accuracy_drop": -0.005935854335163526,
+    "pipelines": {
+      "KS Test": {
+        "detection": {
+          "detector_name": "ks_test",
+          "drift_detected": true,
+          "severity": "critical",
+          "score": 0.0077111968767265004,
+          "threshold": 0.005,
+          "p_value": 3.1870352326706037e-05,
+          "statistic": 0.0077111968767265004,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "statistic": 0.006084374827428518,
+                "p_value": 0.00205969793781466
+              },
+              "COW": {
+                "statistic": 0.0016274037336393432,
+                "p_value": 0.9661851863494997
+              },
+              "SCHL": {
+                "statistic": 0.006036906032936384,
+                "p_value": 0.002292026634395311
+              },
+              "MAR": {
+                "statistic": 0.0077111968767265004,
+                "p_value": 3.1870352326706037e-05
+              },
+              "OCCP": {
+                "statistic": 0.005161745049804878,
+                "p_value": 0.014153164341928877
+              },
+              "POBP": {
+                "statistic": 0.0036949253715541364,
+                "p_value": 0.15803053897725605
+              },
+              "RELP": {
+                "statistic": 0.006832419643328813,
+                "p_value": 0.0003422588669946828
+              },
+              "WKHP": {
+                "statistic": 0.004325022675021384,
+                "p_value": 0.061834538386091764
+              },
+              "SEX": {
+                "statistic": 0.002571288580137221,
+                "p_value": 0.5703235230465029
+              },
+              "RAC1P": {
+                "statistic": 0.005093475305625983,
+                "p_value": 0.016118889881247447
+              }
+            },
+            "correction": "bonferroni",
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "MAR",
+            "RELP",
+            "AGEP",
+            "SCHL"
+          ],
+          "drift_scores": {
+            "MAR": 0.0077111968767265004,
+            "RELP": 0.006832419643328813,
+            "AGEP": 0.006084374827428518,
+            "SCHL": 0.006036906032936384,
+            "OCCP": 0.005161745049804878,
+            "RAC1P": 0.005093475305625983,
+            "WKHP": 0.004325022675021384,
+            "POBP": 0.0036949253715541364,
+            "SEX": 0.002571288580137221,
+            "COW": 0.0016274037336393432
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.0077111968767265004,
+              "p_value": 3.1870352326706037e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.006832419643328813,
+              "p_value": 0.0003422588669946828,
+              "severity": "high"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.006084374827428518,
+              "p_value": 0.00205969793781466,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.006036906032936384,
+              "p_value": 0.002292026634395311,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": false,
+              "score": 0.005161745049804878,
+              "p_value": 0.014153164341928877,
+              "severity": "none"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": false,
+              "score": 0.005093475305625983,
+              "p_value": 0.016118889881247447,
+              "severity": "none"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": false,
+              "score": 0.004325022675021384,
+              "p_value": 0.061834538386091764,
+              "severity": "none"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": false,
+              "score": 0.0036949253715541364,
+              "p_value": 0.15803053897725605,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.002571288580137221,
+              "p_value": 0.5703235230465029,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0016274037336393432,
+              "p_value": 0.9661851863494997,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 4
+          }
+        },
+        "rca": {
+          "analyzer_name": "shap",
+          "explanations": {
+            "method": "SHAP feature importance comparison",
+            "n_reference_samples": 100,
+            "n_test_samples": 100,
+            "top_importance_changes": [
+              [
+                "AGEP",
+                -0.0013327380952380743
+              ],
+              [
+                "SCHL",
+                -8.099206349206317e-05
+              ],
+              [
+                "MAR",
+                -4.8134920634920285e-05
+              ],
+              [
+                "RELP",
+                -4.674603174603065e-05
+              ],
+              [
+                "OCCP",
+                -0.03661936507936481
+              ],
+              [
+                "POBP",
+                -0.005052976190476177
+              ],
+              [
+                "WKHP",
+                -0.0011206746031746065
+              ],
+              [
+                "RAC1P",
+                6.468253968254087e-06
+              ],
+              [
+                "SEX",
+                -5.2380952380951605e-06
+              ],
+              [
+                "COW",
+                -1.8253968253950335e-06
+              ]
+            ]
+          },
+          "feature_importances": {
+            "AGEP": -0.0013327380952380743,
+            "COW": -1.8253968253950335e-06,
+            "SCHL": -8.099206349206317e-05,
+            "MAR": -4.8134920634920285e-05,
+            "OCCP": -0.03661936507936481,
+            "POBP": -0.005052976190476177,
+            "RELP": -4.674603174603065e-05,
+            "WKHP": -0.0011206746031746065,
+            "SEX": -5.2380952380951605e-06,
+            "RAC1P": 6.468253968254087e-06
+          },
+          "distribution_changes": {
+            "AGEP": {
+              "ref_importance": 0.0030453174603174483,
+              "test_importance": 0.001712579365079374,
+              "change": -0.0013327380952380743,
+              "relative_change": -0.4376351788741361
+            },
+            "COW": {
+              "ref_importance": 2.380952380952599e-05,
+              "test_importance": 2.1984126984130955e-05,
+              "change": -1.8253968253950335e-06,
+              "relative_change": -0.07666634466793679
+            },
+            "SCHL": {
+              "ref_importance": 0.0007335714285714307,
+              "test_importance": 0.0006525793650793675,
+              "change": -8.099206349206317e-05,
+              "relative_change": -0.11040786117992946
+            },
+            "MAR": {
+              "ref_importance": 0.00010634920634920738,
+              "test_importance": 5.82142857142871e-05,
+              "change": -4.8134920634920285e-05,
+              "relative_change": -0.4526115147085681
+            },
+            "OCCP": {
+              "ref_importance": 0.16757309523809485,
+              "test_importance": 0.13095373015873005,
+              "change": -0.03661936507936481,
+              "relative_change": -0.2185277117754596
+            },
+            "POBP": {
+              "ref_importance": 0.014805873015873003,
+              "test_importance": 0.009752896825396826,
+              "change": -0.005052976190476177,
+              "relative_change": -0.34128187854446823
+            },
+            "RELP": {
+              "ref_importance": 0.0001787301587301589,
+              "test_importance": 0.00013198412698412824,
+              "change": -4.674603174603065e-05,
+              "relative_change": -0.26154514673761137
+            },
+            "WKHP": {
+              "ref_importance": 0.0031095238095238116,
+              "test_importance": 0.001988849206349205,
+              "change": -0.0011206746031746065,
+              "relative_change": -0.36040070306011096
+            },
+            "SEX": {
+              "ref_importance": 2.3095238095239547e-05,
+              "test_importance": 1.7857142857144387e-05,
+              "change": -5.2380952380951605e-06,
+              "relative_change": -0.2268031416771009
+            },
+            "RAC1P": {
+              "ref_importance": 3.6428571428571274e-05,
+              "test_importance": 4.289682539682536e-05,
+              "change": 6.468253968254087e-06,
+              "relative_change": 0.17755942543600392
+            }
+          },
+          "recommendations": [
+            "Features with decreased model reliance: AGEP, SCHL, MAR",
+            "Features both drifted and importance-shifted: MAR, AGEP, RELP, SCHL - likely root causes"
+          ],
+          "metadata": {
+            "n_features_analyzed": 10,
+            "n_features_focused": 4,
+            "features_focused": [
+              "MAR",
+              "RELP",
+              "AGEP",
+              "SCHL"
+            ]
+          }
+        },
+        "execution_time_seconds": 4.411475419998169,
+        "metadata": {
+          "detector": "ks_test",
+          "localizer": "univariate",
+          "rca": "shap",
+          "reference_samples": 183941,
+          "test_samples": 187475,
+          "n_features": 10
+        }
+      },
+      "PSI": {
+        "detection": {
+          "detector_name": "psi",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.0005218408194426222,
+          "threshold": 0.2,
+          "p_value": null,
+          "statistic": null,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "psi": 0.0005218408194426222,
+                "n_bins": 10
+              },
+              "COW": {
+                "psi": 3.502149826081159e-05,
+                "n_bins": 4
+              },
+              "SCHL": {
+                "psi": 0.0002431902752797607,
+                "n_bins": 8
+              },
+              "MAR": {
+                "psi": 0.0002363532549852331,
+                "n_bins": 2
+              },
+              "OCCP": {
+                "psi": 0.00016858714467093164,
+                "n_bins": 10
+              },
+              "POBP": {
+                "psi": 0.00010621868995839098,
+                "n_bins": 7
+              },
+              "RELP": {
+                "psi": 0.00023977748616938951,
+                "n_bins": 4
+              },
+              "WKHP": {
+                "psi": 0.00015879765355036643,
+                "n_bins": 7
+              },
+              "SEX": {
+                "psi": 0.0,
+                "n_bins": 1
+              },
+              "RAC1P": {
+                "psi": 0.00015138663214049955,
+                "n_bins": 3
+              }
+            },
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "MAR",
+            "RELP",
+            "AGEP",
+            "SCHL"
+          ],
+          "drift_scores": {
+            "MAR": 0.0077111968767265004,
+            "RELP": 0.006832419643328813,
+            "AGEP": 0.006084374827428518,
+            "SCHL": 0.006036906032936384,
+            "OCCP": 0.005161745049804878,
+            "RAC1P": 0.005093475305625983,
+            "WKHP": 0.004325022675021384,
+            "POBP": 0.0036949253715541364,
+            "SEX": 0.002571288580137221,
+            "COW": 0.0016274037336393432
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.0077111968767265004,
+              "p_value": 3.1870352326706037e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.006832419643328813,
+              "p_value": 0.0003422588669946828,
+              "severity": "high"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.006084374827428518,
+              "p_value": 0.00205969793781466,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.006036906032936384,
+              "p_value": 0.002292026634395311,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": false,
+              "score": 0.005161745049804878,
+              "p_value": 0.014153164341928877,
+              "severity": "none"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": false,
+              "score": 0.005093475305625983,
+              "p_value": 0.016118889881247447,
+              "severity": "none"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": false,
+              "score": 0.004325022675021384,
+              "p_value": 0.061834538386091764,
+              "severity": "none"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": false,
+              "score": 0.0036949253715541364,
+              "p_value": 0.15803053897725605,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.002571288580137221,
+              "p_value": 0.5703235230465029,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0016274037336393432,
+              "p_value": 0.9661851863494997,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 4
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.5754106044769287,
+        "metadata": {
+          "detector": "psi",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 187475,
+          "n_features": 10
+        }
+      },
+      "MMD": {
+        "detection": {
+          "detector_name": "mmd",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.0,
+          "threshold": 0.1,
+          "p_value": 1.0,
+          "statistic": 0.0,
+          "metadata": {
+            "kernel": "rbf",
+            "n_features": 10,
+            "n_permutations": 20,
+            "max_samples": 3000,
+            "subsampled": true,
+            "actual_ref_samples": 3000,
+            "actual_test_samples": 3000
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "MAR",
+            "RELP",
+            "AGEP",
+            "SCHL"
+          ],
+          "drift_scores": {
+            "MAR": 0.0077111968767265004,
+            "RELP": 0.006832419643328813,
+            "AGEP": 0.006084374827428518,
+            "SCHL": 0.006036906032936384,
+            "OCCP": 0.005161745049804878,
+            "RAC1P": 0.005093475305625983,
+            "WKHP": 0.004325022675021384,
+            "POBP": 0.0036949253715541364,
+            "SEX": 0.002571288580137221,
+            "COW": 0.0016274037336393432
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.0077111968767265004,
+              "p_value": 3.1870352326706037e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.006832419643328813,
+              "p_value": 0.0003422588669946828,
+              "severity": "high"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.006084374827428518,
+              "p_value": 0.00205969793781466,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.006036906032936384,
+              "p_value": 0.002292026634395311,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": false,
+              "score": 0.005161745049804878,
+              "p_value": 0.014153164341928877,
+              "severity": "none"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": false,
+              "score": 0.005093475305625983,
+              "p_value": 0.016118889881247447,
+              "severity": "none"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": false,
+              "score": 0.004325022675021384,
+              "p_value": 0.061834538386091764,
+              "severity": "none"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": false,
+              "score": 0.0036949253715541364,
+              "p_value": 0.15803053897725605,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.002571288580137221,
+              "p_value": 0.5703235230465029,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0016274037336393432,
+              "p_value": 0.9661851863494997,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 4
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 4.742727994918823,
+        "metadata": {
+          "detector": "mmd",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 187475,
+          "n_features": 10
+        }
+      },
+      "CBPE": {
+        "detection": {
+          "detector_name": "cbpe",
+          "drift_detected": true,
+          "severity": "medium",
+          "score": 11.209136183509237,
+          "threshold": 0.05,
+          "p_value": 0.02431148158481961,
+          "statistic": 11.209136183509237,
+          "metadata": {
+            "chi2_statistic": 11.209136183509237,
+            "n_bins": 10,
+            "n_valid_bins": 5,
+            "ref_mean_confidence": 0.739645864706618,
+            "test_mean_confidence": 0.7922822150453741,
+            "confidence_shift": 0.05263635033875613,
+            "interpretation": "Confidence distribution has shifted, suggesting performance change"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "MAR",
+            "RELP",
+            "AGEP",
+            "SCHL"
+          ],
+          "drift_scores": {
+            "MAR": 0.0077111968767265004,
+            "RELP": 0.006832419643328813,
+            "AGEP": 0.006084374827428518,
+            "SCHL": 0.006036906032936384,
+            "OCCP": 0.005161745049804878,
+            "RAC1P": 0.005093475305625983,
+            "WKHP": 0.004325022675021384,
+            "POBP": 0.0036949253715541364,
+            "SEX": 0.002571288580137221,
+            "COW": 0.0016274037336393432
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.0077111968767265004,
+              "p_value": 3.1870352326706037e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.006832419643328813,
+              "p_value": 0.0003422588669946828,
+              "severity": "high"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.006084374827428518,
+              "p_value": 0.00205969793781466,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.006036906032936384,
+              "p_value": 0.002292026634395311,
+              "severity": "medium"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": false,
+              "score": 0.005161745049804878,
+              "p_value": 0.014153164341928877,
+              "severity": "none"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": false,
+              "score": 0.005093475305625983,
+              "p_value": 0.016118889881247447,
+              "severity": "none"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": false,
+              "score": 0.004325022675021384,
+              "p_value": 0.061834538386091764,
+              "severity": "none"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": false,
+              "score": 0.0036949253715541364,
+              "p_value": 0.15803053897725605,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.002571288580137221,
+              "p_value": 0.5703235230465029,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0016274037336393432,
+              "p_value": 0.9661851863494997,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 4
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.4476277828216553,
+        "metadata": {
+          "detector": "cbpe",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 187475,
+          "n_features": 10
+        }
+      }
+    }
+  },
+  "2016": {
+    "actual_accuracy": 0.789412525566942,
+    "accuracy_drop": -0.009066334502319418,
+    "pipelines": {
+      "KS Test": {
+        "detection": {
+          "detector_name": "ks_test",
+          "drift_detected": true,
+          "severity": "critical",
+          "score": 0.015997074266787092,
+          "threshold": 0.005,
+          "p_value": 3.243313427491555e-21,
+          "statistic": 0.015997074266787092,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "statistic": 0.008736414389240776,
+                "p_value": 1.2572743205594896e-06
+              },
+              "COW": {
+                "statistic": 0.003058670243535455,
+                "p_value": 0.3451728124102733
+              },
+              "SCHL": {
+                "statistic": 0.013986551381426682,
+                "p_value": 2.5592539646691076e-16
+              },
+              "MAR": {
+                "statistic": 0.01101460436876378,
+                "p_value": 2.7801887997459047e-10
+              },
+              "OCCP": {
+                "statistic": 0.010788333703159014,
+                "p_value": 6.995833545330279e-10
+              },
+              "POBP": {
+                "statistic": 0.007681587308025817,
+                "p_value": 3.208669647728213e-05
+              },
+              "RELP": {
+                "statistic": 0.01059028370827042,
+                "p_value": 1.5445234573328563e-09
+              },
+              "WKHP": {
+                "statistic": 0.011114333418701217,
+                "p_value": 1.8399059748149639e-10
+              },
+              "SEX": {
+                "statistic": 0.0016912089814975495,
+                "p_value": 0.9514870768854949
+              },
+              "RAC1P": {
+                "statistic": 0.015997074266787092,
+                "p_value": 3.243313427491555e-21
+              }
+            },
+            "correction": "bonferroni",
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "WKHP",
+            "MAR",
+            "OCCP",
+            "RELP",
+            "AGEP",
+            "POBP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.015997074266787092,
+            "SCHL": 0.013986551381426682,
+            "WKHP": 0.011114333418701217,
+            "MAR": 0.01101460436876378,
+            "OCCP": 0.010788333703159014,
+            "RELP": 0.01059028370827042,
+            "AGEP": 0.008736414389240776,
+            "POBP": 0.007681587308025817,
+            "COW": 0.003058670243535455,
+            "SEX": 0.0016912089814975495
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.015997074266787092,
+              "p_value": 3.243313427491555e-21,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.013986551381426682,
+              "p_value": 2.5592539646691076e-16,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.011114333418701217,
+              "p_value": 1.8399059748149639e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01101460436876378,
+              "p_value": 2.7801887997459047e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.010788333703159014,
+              "p_value": 6.995833545330279e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.01059028370827042,
+              "p_value": 1.5445234573328563e-09,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.008736414389240776,
+              "p_value": 1.2572743205594896e-06,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.007681587308025817,
+              "p_value": 3.208669647728213e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.003058670243535455,
+              "p_value": 0.3451728124102733,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0016912089814975495,
+              "p_value": 0.9514870768854949,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": {
+          "analyzer_name": "shap",
+          "explanations": {
+            "method": "SHAP feature importance comparison",
+            "n_reference_samples": 100,
+            "n_test_samples": 100,
+            "top_importance_changes": [
+              [
+                "OCCP",
+                -0.022849484126983913
+              ],
+              [
+                "POBP",
+                0.002834206349206339
+              ],
+              [
+                "WKHP",
+                0.0010529365079365073
+              ],
+              [
+                "SCHL",
+                0.0006876190476190439
+              ],
+              [
+                "AGEP",
+                0.0004240873015872917
+              ],
+              [
+                "RELP",
+                0.0003908730158730167
+              ],
+              [
+                "MAR",
+                5.805555555555685e-05
+              ],
+              [
+                "RAC1P",
+                1.8293650793650946e-05
+              ],
+              [
+                "SEX",
+                9.880952380952212e-06
+              ],
+              [
+                "COW",
+                6.5476190476180985e-06
+              ]
+            ]
+          },
+          "feature_importances": {
+            "AGEP": 0.0004240873015872917,
+            "COW": 6.5476190476180985e-06,
+            "SCHL": 0.0006876190476190439,
+            "MAR": 5.805555555555685e-05,
+            "OCCP": -0.022849484126983913,
+            "POBP": 0.002834206349206339,
+            "RELP": 0.0003908730158730167,
+            "WKHP": 0.0010529365079365073,
+            "SEX": 9.880952380952212e-06,
+            "RAC1P": 1.8293650793650946e-05
+          },
+          "distribution_changes": {
+            "AGEP": {
+              "ref_importance": 0.0014151587301587357,
+              "test_importance": 0.0018392460317460274,
+              "change": 0.0004240873015872917,
+              "relative_change": 0.2996747026195799
+            },
+            "COW": {
+              "ref_importance": 1.1746031746032942e-05,
+              "test_importance": 1.829365079365104e-05,
+              "change": 6.5476190476180985e-06,
+              "relative_change": 0.5574276867641508
+            },
+            "SCHL": {
+              "ref_importance": 0.00032325396825396915,
+              "test_importance": 0.001010873015873013,
+              "change": 0.0006876190476190439,
+              "relative_change": 2.127178325498463
+            },
+            "MAR": {
+              "ref_importance": 8.396825396825302e-05,
+              "test_importance": 0.00014202380952380988,
+              "change": 5.805555555555685e-05,
+              "relative_change": 0.6913980423804265
+            },
+            "OCCP": {
+              "ref_importance": 0.08660325396825361,
+              "test_importance": 0.0637537698412697,
+              "change": -0.022849484126983913,
+              "relative_change": -0.2638409419232194
+            },
+            "POBP": {
+              "ref_importance": 0.0052848412698412684,
+              "test_importance": 0.008119047619047607,
+              "change": 0.002834206349206339,
+              "relative_change": 0.5362897674431929
+            },
+            "RELP": {
+              "ref_importance": 0.00016682539682539663,
+              "test_importance": 0.0005576984126984133,
+              "change": 0.0003908730158730167,
+              "relative_change": 2.3430052558579417
+            },
+            "WKHP": {
+              "ref_importance": 0.001503412698412699,
+              "test_importance": 0.0025563492063492062,
+              "change": 0.0010529365079365073,
+              "relative_change": 0.7003642040617162
+            },
+            "SEX": {
+              "ref_importance": 2.301587301587319e-05,
+              "test_importance": 3.28968253968254e-05,
+              "change": 9.880952380952212e-06,
+              "relative_change": 0.4293084795562506
+            },
+            "RAC1P": {
+              "ref_importance": 2.944444444444442e-05,
+              "test_importance": 4.773809523809537e-05,
+              "change": 1.8293650793650946e-05,
+              "relative_change": 0.6212916904918385
+            }
+          },
+          "recommendations": [
+            "Features with increased model reliance: POBP, WKHP, SCHL",
+            "Features with decreased model reliance: OCCP",
+            "Features both drifted and importance-shifted: WKHP, SCHL, POBP, OCCP, AGEP - likely root causes"
+          ],
+          "metadata": {
+            "n_features_analyzed": 10,
+            "n_features_focused": 8,
+            "features_focused": [
+              "RAC1P",
+              "SCHL",
+              "WKHP",
+              "MAR",
+              "OCCP",
+              "RELP",
+              "AGEP",
+              "POBP"
+            ]
+          }
+        },
+        "execution_time_seconds": 1.6085662841796875,
+        "metadata": {
+          "detector": "ks_test",
+          "localizer": "univariate",
+          "rca": "shap",
+          "reference_samples": 183941,
+          "test_samples": 190187,
+          "n_features": 10
+        }
+      },
+      "PSI": {
+        "detection": {
+          "detector_name": "psi",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.0012749232584349265,
+          "threshold": 0.2,
+          "p_value": null,
+          "statistic": null,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "psi": 0.0011796866641879222,
+                "n_bins": 10
+              },
+              "COW": {
+                "psi": 0.00018566807409803126,
+                "n_bins": 4
+              },
+              "SCHL": {
+                "psi": 0.001031894424384565,
+                "n_bins": 8
+              },
+              "MAR": {
+                "psi": 0.00040651072883470343,
+                "n_bins": 2
+              },
+              "OCCP": {
+                "psi": 0.0007409133796935094,
+                "n_bins": 10
+              },
+              "POBP": {
+                "psi": 0.0003491613289932824,
+                "n_bins": 7
+              },
+              "RELP": {
+                "psi": 0.0006103521165255798,
+                "n_bins": 4
+              },
+              "WKHP": {
+                "psi": 0.000735377789367378,
+                "n_bins": 7
+              },
+              "SEX": {
+                "psi": 0.0,
+                "n_bins": 1
+              },
+              "RAC1P": {
+                "psi": 0.0012749232584349265,
+                "n_bins": 3
+              }
+            },
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "WKHP",
+            "MAR",
+            "OCCP",
+            "RELP",
+            "AGEP",
+            "POBP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.015997074266787092,
+            "SCHL": 0.013986551381426682,
+            "WKHP": 0.011114333418701217,
+            "MAR": 0.01101460436876378,
+            "OCCP": 0.010788333703159014,
+            "RELP": 0.01059028370827042,
+            "AGEP": 0.008736414389240776,
+            "POBP": 0.007681587308025817,
+            "COW": 0.003058670243535455,
+            "SEX": 0.0016912089814975495
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.015997074266787092,
+              "p_value": 3.243313427491555e-21,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.013986551381426682,
+              "p_value": 2.5592539646691076e-16,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.011114333418701217,
+              "p_value": 1.8399059748149639e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01101460436876378,
+              "p_value": 2.7801887997459047e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.010788333703159014,
+              "p_value": 6.995833545330279e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.01059028370827042,
+              "p_value": 1.5445234573328563e-09,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.008736414389240776,
+              "p_value": 1.2572743205594896e-06,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.007681587308025817,
+              "p_value": 3.208669647728213e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.003058670243535455,
+              "p_value": 0.3451728124102733,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0016912089814975495,
+              "p_value": 0.9514870768854949,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.6512851715087891,
+        "metadata": {
+          "detector": "psi",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 190187,
+          "n_features": 10
+        }
+      },
+      "MMD": {
+        "detection": {
+          "detector_name": "mmd",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.00988792786319272,
+          "threshold": 0.1,
+          "p_value": 0.23809523809523808,
+          "statistic": 0.00988792786319272,
+          "metadata": {
+            "kernel": "rbf",
+            "n_features": 10,
+            "n_permutations": 20,
+            "max_samples": 3000,
+            "subsampled": true,
+            "actual_ref_samples": 3000,
+            "actual_test_samples": 3000
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "WKHP",
+            "MAR",
+            "OCCP",
+            "RELP",
+            "AGEP",
+            "POBP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.015997074266787092,
+            "SCHL": 0.013986551381426682,
+            "WKHP": 0.011114333418701217,
+            "MAR": 0.01101460436876378,
+            "OCCP": 0.010788333703159014,
+            "RELP": 0.01059028370827042,
+            "AGEP": 0.008736414389240776,
+            "POBP": 0.007681587308025817,
+            "COW": 0.003058670243535455,
+            "SEX": 0.0016912089814975495
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.015997074266787092,
+              "p_value": 3.243313427491555e-21,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.013986551381426682,
+              "p_value": 2.5592539646691076e-16,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.011114333418701217,
+              "p_value": 1.8399059748149639e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01101460436876378,
+              "p_value": 2.7801887997459047e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.010788333703159014,
+              "p_value": 6.995833545330279e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.01059028370827042,
+              "p_value": 1.5445234573328563e-09,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.008736414389240776,
+              "p_value": 1.2572743205594896e-06,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.007681587308025817,
+              "p_value": 3.208669647728213e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.003058670243535455,
+              "p_value": 0.3451728124102733,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0016912089814975495,
+              "p_value": 0.9514870768854949,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 4.988791465759277,
+        "metadata": {
+          "detector": "mmd",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 190187,
+          "n_features": 10
+        }
+      },
+      "CBPE": {
+        "detection": {
+          "detector_name": "cbpe",
+          "drift_detected": true,
+          "severity": "critical",
+          "score": 24.130213034972087,
+          "threshold": 0.05,
+          "p_value": 7.521488064563193e-05,
+          "statistic": 24.130213034972087,
+          "metadata": {
+            "chi2_statistic": 24.130213034972087,
+            "n_bins": 10,
+            "n_valid_bins": 5,
+            "ref_mean_confidence": 0.739645864706618,
+            "test_mean_confidence": 0.7908527349800647,
+            "confidence_shift": 0.051206870273446725,
+            "interpretation": "Confidence distribution has shifted, suggesting performance change"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "WKHP",
+            "MAR",
+            "OCCP",
+            "RELP",
+            "AGEP",
+            "POBP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.015997074266787092,
+            "SCHL": 0.013986551381426682,
+            "WKHP": 0.011114333418701217,
+            "MAR": 0.01101460436876378,
+            "OCCP": 0.010788333703159014,
+            "RELP": 0.01059028370827042,
+            "AGEP": 0.008736414389240776,
+            "POBP": 0.007681587308025817,
+            "COW": 0.003058670243535455,
+            "SEX": 0.0016912089814975495
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.015997074266787092,
+              "p_value": 3.243313427491555e-21,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.013986551381426682,
+              "p_value": 2.5592539646691076e-16,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.011114333418701217,
+              "p_value": 1.8399059748149639e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01101460436876378,
+              "p_value": 2.7801887997459047e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.010788333703159014,
+              "p_value": 6.995833545330279e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.01059028370827042,
+              "p_value": 1.5445234573328563e-09,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.008736414389240776,
+              "p_value": 1.2572743205594896e-06,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.007681587308025817,
+              "p_value": 3.208669647728213e-05,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.003058670243535455,
+              "p_value": 0.3451728124102733,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0016912089814975495,
+              "p_value": 0.9514870768854949,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.5238420963287354,
+        "metadata": {
+          "detector": "cbpe",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 190187,
+          "n_features": 10
+        }
+      }
+    }
+  },
+  "2017": {
+    "actual_accuracy": 0.7845891493761954,
+    "accuracy_drop": -0.013889710693065993,
+    "pipelines": {
+      "KS Test": {
+        "detection": {
+          "detector_name": "ks_test",
+          "drift_detected": true,
+          "severity": "critical",
+          "score": 0.02296391353497429,
+          "threshold": 0.005,
+          "p_value": 1.4397223039090878e-43,
+          "statistic": 0.02296391353497429,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "statistic": 0.011101631631287523,
+                "p_value": 1.6492171818352533e-10
+              },
+              "COW": {
+                "statistic": 0.0034840647463495467,
+                "p_value": 0.20264922634609028
+              },
+              "SCHL": {
+                "statistic": 0.022166717012313875,
+                "p_value": 1.264158311835073e-40
+              },
+              "MAR": {
+                "statistic": 0.014259665221350248,
+                "p_value": 4.626024346173097e-17
+              },
+              "OCCP": {
+                "statistic": 0.01683542702474028,
+                "p_value": 1.2969770463130717e-23
+              },
+              "POBP": {
+                "statistic": 0.015107746937204625,
+                "p_value": 4.2434347253838763e-19
+              },
+              "RELP": {
+                "statistic": 0.013323453000038232,
+                "p_value": 5.994658884880994e-15
+              },
+              "WKHP": {
+                "statistic": 0.01501745108099456,
+                "p_value": 7.0835121315368785e-19
+              },
+              "SEX": {
+                "statistic": 0.0019190569616703845,
+                "p_value": 0.8779655404488703
+              },
+              "RAC1P": {
+                "statistic": 0.02296391353497429,
+                "p_value": 1.4397223039090878e-43
+              }
+            },
+            "correction": "bonferroni",
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "OCCP",
+            "POBP",
+            "WKHP",
+            "MAR",
+            "RELP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.02296391353497429,
+            "SCHL": 0.022166717012313875,
+            "OCCP": 0.01683542702474028,
+            "POBP": 0.015107746937204625,
+            "WKHP": 0.01501745108099456,
+            "MAR": 0.014259665221350248,
+            "RELP": 0.013323453000038232,
+            "AGEP": 0.011101631631287523,
+            "COW": 0.0034840647463495467,
+            "SEX": 0.0019190569616703845
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02296391353497429,
+              "p_value": 1.4397223039090878e-43,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.022166717012313875,
+              "p_value": 1.264158311835073e-40,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.01683542702474028,
+              "p_value": 1.2969770463130717e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.015107746937204625,
+              "p_value": 4.2434347253838763e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.01501745108099456,
+              "p_value": 7.0835121315368785e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.014259665221350248,
+              "p_value": 4.626024346173097e-17,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.013323453000038232,
+              "p_value": 5.994658884880994e-15,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.011101631631287523,
+              "p_value": 1.6492171818352533e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0034840647463495467,
+              "p_value": 0.20264922634609028,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0019190569616703845,
+              "p_value": 0.8779655404488703,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": {
+          "analyzer_name": "shap",
+          "explanations": {
+            "method": "SHAP feature importance comparison",
+            "n_reference_samples": 100,
+            "n_test_samples": 100,
+            "top_importance_changes": [
+              [
+                "OCCP",
+                0.01874587301587298
+              ],
+              [
+                "POBP",
+                0.002948849206349205
+              ],
+              [
+                "AGEP",
+                0.0017506349206349156
+              ],
+              [
+                "SCHL",
+                0.0007946825396825332
+              ],
+              [
+                "WKHP",
+                0.0006984523809523812
+              ],
+              [
+                "RELP",
+                0.0004935317460317455
+              ],
+              [
+                "MAR",
+                6.170634920635049e-05
+              ],
+              [
+                "RAC1P",
+                -9.682539682539509e-06
+              ],
+              [
+                "SEX",
+                1.714285714285715e-05
+              ],
+              [
+                "COW",
+                1.000000000000002e-05
+              ]
+            ]
+          },
+          "feature_importances": {
+            "AGEP": 0.0017506349206349156,
+            "COW": 1.000000000000002e-05,
+            "SCHL": 0.0007946825396825332,
+            "MAR": 6.170634920635049e-05,
+            "OCCP": 0.01874587301587298,
+            "POBP": 0.002948849206349205,
+            "RELP": 0.0004935317460317455,
+            "WKHP": 0.0006984523809523812,
+            "SEX": 1.714285714285715e-05,
+            "RAC1P": -9.682539682539509e-06
+          },
+          "distribution_changes": {
+            "AGEP": {
+              "ref_importance": 0.002272063492063504,
+              "test_importance": 0.00402269841269842,
+              "change": 0.0017506349206349156,
+              "relative_change": 0.7705043673733518
+            },
+            "COW": {
+              "ref_importance": 2.6507936507936713e-05,
+              "test_importance": 3.650793650793673e-05,
+              "change": 1.000000000000002e-05,
+              "relative_change": 0.377244085845662
+            },
+            "SCHL": {
+              "ref_importance": 0.00116952380952381,
+              "test_importance": 0.001964206349206343,
+              "change": 0.0007946825396825332,
+              "relative_change": 0.6794923414657684
+            },
+            "MAR": {
+              "ref_importance": 0.00013642857142857174,
+              "test_importance": 0.00019813492063492223,
+              "change": 6.170634920635049e-05,
+              "relative_change": 0.45229751605883894
+            },
+            "OCCP": {
+              "ref_importance": 0.06630523809523785,
+              "test_importance": 0.08505111111111083,
+              "change": 0.01874587301587298,
+              "relative_change": 0.28272084568454714
+            },
+            "POBP": {
+              "ref_importance": 0.017112777777777772,
+              "test_importance": 0.020061626984126977,
+              "change": 0.002948849206349205,
+              "relative_change": 0.17231855794601922
+            },
+            "RELP": {
+              "ref_importance": 0.0001383333333333333,
+              "test_importance": 0.0006318650793650788,
+              "change": 0.0004935317460317455,
+              "relative_change": 3.567696789846264
+            },
+            "WKHP": {
+              "ref_importance": 0.003484285714285716,
+              "test_importance": 0.004182738095238097,
+              "change": 0.0006984523809523812,
+              "relative_change": 0.20045783215851512
+            },
+            "SEX": {
+              "ref_importance": 2.920634920634917e-05,
+              "test_importance": 4.634920634920632e-05,
+              "change": 1.714285714285715e-05,
+              "relative_change": 0.5869545120579216
+            },
+            "RAC1P": {
+              "ref_importance": 6.396825396825387e-05,
+              "test_importance": 5.4285714285714356e-05,
+              "change": -9.682539682539509e-06,
+              "relative_change": -0.15136452764353994
+            }
+          },
+          "recommendations": [
+            "Features with increased model reliance: OCCP, POBP, AGEP",
+            "Features with decreased model reliance: RAC1P",
+            "Features both drifted and importance-shifted: WKHP, SCHL, POBP, OCCP, AGEP - likely root causes"
+          ],
+          "metadata": {
+            "n_features_analyzed": 10,
+            "n_features_focused": 8,
+            "features_focused": [
+              "RAC1P",
+              "SCHL",
+              "OCCP",
+              "POBP",
+              "WKHP",
+              "MAR",
+              "RELP",
+              "AGEP"
+            ]
+          }
+        },
+        "execution_time_seconds": 1.7583768367767334,
+        "metadata": {
+          "detector": "ks_test",
+          "localizer": "univariate",
+          "rca": "shap",
+          "reference_samples": 183941,
+          "test_samples": 192929,
+          "n_features": 10
+        }
+      },
+      "PSI": {
+        "detection": {
+          "detector_name": "psi",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.0036545840761184286,
+          "threshold": 0.2,
+          "p_value": null,
+          "statistic": null,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "psi": 0.0022106212924850694,
+                "n_bins": 10
+              },
+              "COW": {
+                "psi": 0.0006299127384922249,
+                "n_bins": 4
+              },
+              "SCHL": {
+                "psi": 0.0036545840761184286,
+                "n_bins": 8
+              },
+              "MAR": {
+                "psi": 0.0006193128081898707,
+                "n_bins": 2
+              },
+              "OCCP": {
+                "psi": 0.0015205341416030284,
+                "n_bins": 10
+              },
+              "POBP": {
+                "psi": 0.001821479210060193,
+                "n_bins": 7
+              },
+              "RELP": {
+                "psi": 0.0009044575008249329,
+                "n_bins": 4
+              },
+              "WKHP": {
+                "psi": 0.0010704824382133961,
+                "n_bins": 7
+              },
+              "SEX": {
+                "psi": 0.0,
+                "n_bins": 1
+              },
+              "RAC1P": {
+                "psi": 0.0014785165704876283,
+                "n_bins": 3
+              }
+            },
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "OCCP",
+            "POBP",
+            "WKHP",
+            "MAR",
+            "RELP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.02296391353497429,
+            "SCHL": 0.022166717012313875,
+            "OCCP": 0.01683542702474028,
+            "POBP": 0.015107746937204625,
+            "WKHP": 0.01501745108099456,
+            "MAR": 0.014259665221350248,
+            "RELP": 0.013323453000038232,
+            "AGEP": 0.011101631631287523,
+            "COW": 0.0034840647463495467,
+            "SEX": 0.0019190569616703845
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02296391353497429,
+              "p_value": 1.4397223039090878e-43,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.022166717012313875,
+              "p_value": 1.264158311835073e-40,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.01683542702474028,
+              "p_value": 1.2969770463130717e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.015107746937204625,
+              "p_value": 4.2434347253838763e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.01501745108099456,
+              "p_value": 7.0835121315368785e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.014259665221350248,
+              "p_value": 4.626024346173097e-17,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.013323453000038232,
+              "p_value": 5.994658884880994e-15,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.011101631631287523,
+              "p_value": 1.6492171818352533e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0034840647463495467,
+              "p_value": 0.20264922634609028,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0019190569616703845,
+              "p_value": 0.8779655404488703,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.6385674476623535,
+        "metadata": {
+          "detector": "psi",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 192929,
+          "n_features": 10
+        }
+      },
+      "MMD": {
+        "detection": {
+          "detector_name": "mmd",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.0,
+          "threshold": 0.1,
+          "p_value": 1.0,
+          "statistic": 0.0,
+          "metadata": {
+            "kernel": "rbf",
+            "n_features": 10,
+            "n_permutations": 20,
+            "max_samples": 3000,
+            "subsampled": true,
+            "actual_ref_samples": 3000,
+            "actual_test_samples": 3000
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "OCCP",
+            "POBP",
+            "WKHP",
+            "MAR",
+            "RELP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.02296391353497429,
+            "SCHL": 0.022166717012313875,
+            "OCCP": 0.01683542702474028,
+            "POBP": 0.015107746937204625,
+            "WKHP": 0.01501745108099456,
+            "MAR": 0.014259665221350248,
+            "RELP": 0.013323453000038232,
+            "AGEP": 0.011101631631287523,
+            "COW": 0.0034840647463495467,
+            "SEX": 0.0019190569616703845
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02296391353497429,
+              "p_value": 1.4397223039090878e-43,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.022166717012313875,
+              "p_value": 1.264158311835073e-40,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.01683542702474028,
+              "p_value": 1.2969770463130717e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.015107746937204625,
+              "p_value": 4.2434347253838763e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.01501745108099456,
+              "p_value": 7.0835121315368785e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.014259665221350248,
+              "p_value": 4.626024346173097e-17,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.013323453000038232,
+              "p_value": 5.994658884880994e-15,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.011101631631287523,
+              "p_value": 1.6492171818352533e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0034840647463495467,
+              "p_value": 0.20264922634609028,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0019190569616703845,
+              "p_value": 0.8779655404488703,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 4.92184591293335,
+        "metadata": {
+          "detector": "mmd",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 192929,
+          "n_features": 10
+        }
+      },
+      "CBPE": {
+        "detection": {
+          "detector_name": "cbpe",
+          "drift_detected": true,
+          "severity": "critical",
+          "score": 212.96511973709613,
+          "threshold": 0.05,
+          "p_value": 6.117159879359646e-45,
+          "statistic": 212.96511973709613,
+          "metadata": {
+            "chi2_statistic": 212.96511973709613,
+            "n_bins": 10,
+            "n_valid_bins": 5,
+            "ref_mean_confidence": 0.739645864706618,
+            "test_mean_confidence": 0.7880732266968434,
+            "confidence_shift": 0.04842736199022546,
+            "interpretation": "Confidence distribution has shifted, suggesting performance change"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "RAC1P",
+            "SCHL",
+            "OCCP",
+            "POBP",
+            "WKHP",
+            "MAR",
+            "RELP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "RAC1P": 0.02296391353497429,
+            "SCHL": 0.022166717012313875,
+            "OCCP": 0.01683542702474028,
+            "POBP": 0.015107746937204625,
+            "WKHP": 0.01501745108099456,
+            "MAR": 0.014259665221350248,
+            "RELP": 0.013323453000038232,
+            "AGEP": 0.011101631631287523,
+            "COW": 0.0034840647463495467,
+            "SEX": 0.0019190569616703845
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02296391353497429,
+              "p_value": 1.4397223039090878e-43,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.022166717012313875,
+              "p_value": 1.264158311835073e-40,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.01683542702474028,
+              "p_value": 1.2969770463130717e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.015107746937204625,
+              "p_value": 4.2434347253838763e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.01501745108099456,
+              "p_value": 7.0835121315368785e-19,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.014259665221350248,
+              "p_value": 4.626024346173097e-17,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.013323453000038232,
+              "p_value": 5.994658884880994e-15,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.011101631631287523,
+              "p_value": 1.6492171818352533e-10,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.0034840647463495467,
+              "p_value": 0.20264922634609028,
+              "severity": "none"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0019190569616703845,
+              "p_value": 0.8779655404488703,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.49851393699645996,
+        "metadata": {
+          "detector": "cbpe",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 192929,
+          "n_features": 10
+        }
+      }
+    }
+  },
+  "2018": {
+    "actual_accuracy": 0.7788567193928398,
+    "accuracy_drop": -0.01962214067642154,
+    "pipelines": {
+      "KS Test": {
+        "detection": {
+          "detector_name": "ks_test",
+          "drift_detected": true,
+          "severity": "critical",
+          "score": 0.03689103488704987,
+          "threshold": 0.005,
+          "p_value": 1.5140768173949474e-112,
+          "statistic": 0.03689103488704987,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "statistic": 0.016518203835161116,
+                "p_value": 6.685972339784102e-23
+              },
+              "COW": {
+                "statistic": 0.004223691732706758,
+                "p_value": 0.06771224738126624
+              },
+              "SCHL": {
+                "statistic": 0.028760871072186944,
+                "p_value": 1.4452610614134264e-68
+              },
+              "MAR": {
+                "statistic": 0.01930009582265435,
+                "p_value": 4.144301806408453e-31
+              },
+              "OCCP": {
+                "statistic": 0.03689103488704987,
+                "p_value": 1.5140768173949474e-112
+              },
+              "POBP": {
+                "statistic": 0.02084784279131774,
+                "p_value": 3.153926056831634e-36
+              },
+              "RELP": {
+                "statistic": 0.0179265718846926,
+                "p_value": 6.749588065812528e-27
+              },
+              "WKHP": {
+                "statistic": 0.016693997794411997,
+                "p_value": 2.2092484991033443e-23
+              },
+              "SEX": {
+                "statistic": 0.0054053463325270945,
+                "p_value": 0.007822029834150677
+              },
+              "RAC1P": {
+                "statistic": 0.02089937282642751,
+                "p_value": 2.09722289073885e-36
+              }
+            },
+            "correction": "bonferroni",
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "OCCP",
+            "SCHL",
+            "RAC1P",
+            "POBP",
+            "MAR",
+            "RELP",
+            "WKHP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "OCCP": 0.03689103488704987,
+            "SCHL": 0.028760871072186944,
+            "RAC1P": 0.02089937282642751,
+            "POBP": 0.02084784279131774,
+            "MAR": 0.01930009582265435,
+            "RELP": 0.0179265718846926,
+            "WKHP": 0.016693997794411997,
+            "AGEP": 0.016518203835161116,
+            "SEX": 0.0054053463325270945,
+            "COW": 0.004223691732706758
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.03689103488704987,
+              "p_value": 1.5140768173949474e-112,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.028760871072186944,
+              "p_value": 1.4452610614134264e-68,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02089937282642751,
+              "p_value": 2.09722289073885e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.02084784279131774,
+              "p_value": 3.153926056831634e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01930009582265435,
+              "p_value": 4.144301806408453e-31,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.0179265718846926,
+              "p_value": 6.749588065812528e-27,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.016693997794411997,
+              "p_value": 2.2092484991033443e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.016518203835161116,
+              "p_value": 6.685972339784102e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0054053463325270945,
+              "p_value": 0.007822029834150677,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.004223691732706758,
+              "p_value": 0.06771224738126624,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": {
+          "analyzer_name": "shap",
+          "explanations": {
+            "method": "SHAP feature importance comparison",
+            "n_reference_samples": 100,
+            "n_test_samples": 100,
+            "top_importance_changes": [
+              [
+                "OCCP",
+                0.06163492063492041
+              ],
+              [
+                "POBP",
+                0.010271309523809507
+              ],
+              [
+                "WKHP",
+                0.005569880952380943
+              ],
+              [
+                "AGEP",
+                0.0014149206349206474
+              ],
+              [
+                "MAR",
+                -0.0005495634920634928
+              ],
+              [
+                "RELP",
+                0.0004156746031746028
+              ],
+              [
+                "RAC1P",
+                -1.1190476190476299e-05
+              ],
+              [
+                "SCHL",
+                5.595238095236401e-06
+              ],
+              [
+                "COW",
+                2.976190476190365e-05
+              ],
+              [
+                "SEX",
+                -7.341269841269727e-06
+              ]
+            ]
+          },
+          "feature_importances": {
+            "AGEP": 0.0014149206349206474,
+            "COW": 2.976190476190365e-05,
+            "SCHL": 5.595238095236401e-06,
+            "MAR": -0.0005495634920634928,
+            "OCCP": 0.06163492063492041,
+            "POBP": 0.010271309523809507,
+            "RELP": 0.0004156746031746028,
+            "WKHP": 0.005569880952380943,
+            "SEX": -7.341269841269727e-06,
+            "RAC1P": -1.1190476190476299e-05
+          },
+          "distribution_changes": {
+            "AGEP": {
+              "ref_importance": 0.006821031746031761,
+              "test_importance": 0.008235952380952408,
+              "change": 0.0014149206349206474,
+              "relative_change": 0.20743498445089348
+            },
+            "COW": {
+              "ref_importance": 5.4682539682540996e-05,
+              "test_importance": 8.444444444444465e-05,
+              "change": 2.976190476190365e-05,
+              "relative_change": 0.5442660583813402
+            },
+            "SCHL": {
+              "ref_importance": 0.0024589682539682546,
+              "test_importance": 0.002464563492063491,
+              "change": 5.595238095236401e-06,
+              "relative_change": 0.002275441278537347
+            },
+            "MAR": {
+              "ref_importance": 0.0014092063492063486,
+              "test_importance": 0.0008596428571428558,
+              "change": -0.0005495634920634928,
+              "relative_change": -0.38998082386934974
+            },
+            "OCCP": {
+              "ref_importance": 0.01860428571428565,
+              "test_importance": 0.08023920634920606,
+              "change": 0.06163492063492041,
+              "relative_change": 3.312942041967173
+            },
+            "POBP": {
+              "ref_importance": 0.005927857142857146,
+              "test_importance": 0.016199166666666653,
+              "change": 0.010271309523809507,
+              "relative_change": 1.7327187722319164
+            },
+            "RELP": {
+              "ref_importance": 0.0006176984126984132,
+              "test_importance": 0.001033373015873016,
+              "change": 0.0004156746031746028,
+              "relative_change": 0.6729409163682946
+            },
+            "WKHP": {
+              "ref_importance": 0.005334206349206353,
+              "test_importance": 0.010904087301587297,
+              "change": 0.005569880952380943,
+              "relative_change": 1.04418173638736
+            },
+            "SEX": {
+              "ref_importance": 7.595238095238092e-05,
+              "test_importance": 6.86111111111112e-05,
+              "change": -7.341269841269727e-06,
+              "relative_change": -0.09665609008706907
+            },
+            "RAC1P": {
+              "ref_importance": 7.269841269841273e-05,
+              "test_importance": 6.150793650793643e-05,
+              "change": -1.1190476190476299e-05,
+              "relative_change": -0.15392991926670638
+            }
+          },
+          "recommendations": [
+            "Features with increased model reliance: OCCP, POBP, WKHP",
+            "Features with decreased model reliance: MAR, RAC1P",
+            "Features both drifted and importance-shifted: WKHP, POBP, MAR, OCCP, AGEP - likely root causes"
+          ],
+          "metadata": {
+            "n_features_analyzed": 10,
+            "n_features_focused": 8,
+            "features_focused": [
+              "OCCP",
+              "SCHL",
+              "RAC1P",
+              "POBP",
+              "MAR",
+              "RELP",
+              "WKHP",
+              "AGEP"
+            ]
+          }
+        },
+        "execution_time_seconds": 1.6592609882354736,
+        "metadata": {
+          "detector": "ks_test",
+          "localizer": "univariate",
+          "rca": "shap",
+          "reference_samples": 183941,
+          "test_samples": 195665,
+          "n_features": 10
+        }
+      },
+      "PSI": {
+        "detection": {
+          "detector_name": "psi",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.03420812757011662,
+          "threshold": 0.2,
+          "p_value": null,
+          "statistic": null,
+          "metadata": {
+            "n_features_tested": 10,
+            "feature_results": {
+              "AGEP": {
+                "psi": 0.003975177676630116,
+                "n_bins": 10
+              },
+              "COW": {
+                "psi": 0.0006483166458870678,
+                "n_bins": 4
+              },
+              "SCHL": {
+                "psi": 0.005966740746425431,
+                "n_bins": 8
+              },
+              "MAR": {
+                "psi": 0.0012971241781931325,
+                "n_bins": 2
+              },
+              "OCCP": {
+                "psi": 0.03420812757011662,
+                "n_bins": 10
+              },
+              "POBP": {
+                "psi": 0.002752116122141256,
+                "n_bins": 7
+              },
+              "RELP": {
+                "psi": 0.0015207688882675923,
+                "n_bins": 4
+              },
+              "WKHP": {
+                "psi": 0.0012601114666977893,
+                "n_bins": 7
+              },
+              "SEX": {
+                "psi": 0.0,
+                "n_bins": 1
+              },
+              "RAC1P": {
+                "psi": 0.0010967256965530479,
+                "n_bins": 3
+              }
+            },
+            "aggregate_method": "max"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "OCCP",
+            "SCHL",
+            "RAC1P",
+            "POBP",
+            "MAR",
+            "RELP",
+            "WKHP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "OCCP": 0.03689103488704987,
+            "SCHL": 0.028760871072186944,
+            "RAC1P": 0.02089937282642751,
+            "POBP": 0.02084784279131774,
+            "MAR": 0.01930009582265435,
+            "RELP": 0.0179265718846926,
+            "WKHP": 0.016693997794411997,
+            "AGEP": 0.016518203835161116,
+            "SEX": 0.0054053463325270945,
+            "COW": 0.004223691732706758
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.03689103488704987,
+              "p_value": 1.5140768173949474e-112,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.028760871072186944,
+              "p_value": 1.4452610614134264e-68,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02089937282642751,
+              "p_value": 2.09722289073885e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.02084784279131774,
+              "p_value": 3.153926056831634e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01930009582265435,
+              "p_value": 4.144301806408453e-31,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.0179265718846926,
+              "p_value": 6.749588065812528e-27,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.016693997794411997,
+              "p_value": 2.2092484991033443e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.016518203835161116,
+              "p_value": 6.685972339784102e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0054053463325270945,
+              "p_value": 0.007822029834150677,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.004223691732706758,
+              "p_value": 0.06771224738126624,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.6516938209533691,
+        "metadata": {
+          "detector": "psi",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 195665,
+          "n_features": 10
+        }
+      },
+      "MMD": {
+        "detection": {
+          "detector_name": "mmd",
+          "drift_detected": false,
+          "severity": "none",
+          "score": 0.027606548832468433,
+          "threshold": 0.1,
+          "p_value": 0.14285714285714285,
+          "statistic": 0.027606548832468433,
+          "metadata": {
+            "kernel": "rbf",
+            "n_features": 10,
+            "n_permutations": 20,
+            "max_samples": 3000,
+            "subsampled": true,
+            "actual_ref_samples": 3000,
+            "actual_test_samples": 3000
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "OCCP",
+            "SCHL",
+            "RAC1P",
+            "POBP",
+            "MAR",
+            "RELP",
+            "WKHP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "OCCP": 0.03689103488704987,
+            "SCHL": 0.028760871072186944,
+            "RAC1P": 0.02089937282642751,
+            "POBP": 0.02084784279131774,
+            "MAR": 0.01930009582265435,
+            "RELP": 0.0179265718846926,
+            "WKHP": 0.016693997794411997,
+            "AGEP": 0.016518203835161116,
+            "SEX": 0.0054053463325270945,
+            "COW": 0.004223691732706758
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.03689103488704987,
+              "p_value": 1.5140768173949474e-112,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.028760871072186944,
+              "p_value": 1.4452610614134264e-68,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02089937282642751,
+              "p_value": 2.09722289073885e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.02084784279131774,
+              "p_value": 3.153926056831634e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01930009582265435,
+              "p_value": 4.144301806408453e-31,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.0179265718846926,
+              "p_value": 6.749588065812528e-27,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.016693997794411997,
+              "p_value": 2.2092484991033443e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.016518203835161116,
+              "p_value": 6.685972339784102e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0054053463325270945,
+              "p_value": 0.007822029834150677,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.004223691732706758,
+              "p_value": 0.06771224738126624,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 4.818681478500366,
+        "metadata": {
+          "detector": "mmd",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 195665,
+          "n_features": 10
+        }
+      },
+      "CBPE": {
+        "detection": {
+          "detector_name": "cbpe",
+          "drift_detected": true,
+          "severity": "critical",
+          "score": 201.27970605932688,
+          "threshold": 0.05,
+          "p_value": 1.9940277507082586e-42,
+          "statistic": 201.27970605932688,
+          "metadata": {
+            "chi2_statistic": 201.27970605932688,
+            "n_bins": 10,
+            "n_valid_bins": 5,
+            "ref_mean_confidence": 0.739645864706618,
+            "test_mean_confidence": 0.7881967941992486,
+            "confidence_shift": 0.04855092949263062,
+            "interpretation": "Confidence distribution has shifted, suggesting performance change"
+          }
+        },
+        "localization": {
+          "method_name": "univariate",
+          "drifted_features": [
+            "OCCP",
+            "SCHL",
+            "RAC1P",
+            "POBP",
+            "MAR",
+            "RELP",
+            "WKHP",
+            "AGEP"
+          ],
+          "drift_scores": {
+            "OCCP": 0.03689103488704987,
+            "SCHL": 0.028760871072186944,
+            "RAC1P": 0.02089937282642751,
+            "POBP": 0.02084784279131774,
+            "MAR": 0.01930009582265435,
+            "RELP": 0.0179265718846926,
+            "WKHP": 0.016693997794411997,
+            "AGEP": 0.016518203835161116,
+            "SEX": 0.0054053463325270945,
+            "COW": 0.004223691732706758
+          },
+          "feature_drifts": [
+            {
+              "feature_name": "OCCP",
+              "drift_detected": true,
+              "score": 0.03689103488704987,
+              "p_value": 1.5140768173949474e-112,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SCHL",
+              "drift_detected": true,
+              "score": 0.028760871072186944,
+              "p_value": 1.4452610614134264e-68,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RAC1P",
+              "drift_detected": true,
+              "score": 0.02089937282642751,
+              "p_value": 2.09722289073885e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "POBP",
+              "drift_detected": true,
+              "score": 0.02084784279131774,
+              "p_value": 3.153926056831634e-36,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "MAR",
+              "drift_detected": true,
+              "score": 0.01930009582265435,
+              "p_value": 4.144301806408453e-31,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "RELP",
+              "drift_detected": true,
+              "score": 0.0179265718846926,
+              "p_value": 6.749588065812528e-27,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "WKHP",
+              "drift_detected": true,
+              "score": 0.016693997794411997,
+              "p_value": 2.2092484991033443e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "AGEP",
+              "drift_detected": true,
+              "score": 0.016518203835161116,
+              "p_value": 6.685972339784102e-23,
+              "severity": "critical"
+            },
+            {
+              "feature_name": "SEX",
+              "drift_detected": false,
+              "score": 0.0054053463325270945,
+              "p_value": 0.007822029834150677,
+              "severity": "none"
+            },
+            {
+              "feature_name": "COW",
+              "drift_detected": false,
+              "score": 0.004223691732706758,
+              "p_value": 0.06771224738126624,
+              "severity": "none"
+            }
+          ],
+          "slice_drifts": null,
+          "metadata": {
+            "threshold": 0.005,
+            "correction": "bonferroni",
+            "n_tested": 10,
+            "n_drifted": 8
+          }
+        },
+        "rca": null,
+        "execution_time_seconds": 0.5274052619934082,
+        "metadata": {
+          "detector": "cbpe",
+          "localizer": "univariate",
+          "rca": null,
+          "reference_samples": 183941,
+          "test_samples": 195665,
+          "n_features": 10
+        }
+      }
+    }
+  }
+}
