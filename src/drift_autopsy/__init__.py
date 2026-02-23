@@ -13,13 +13,21 @@ from drift_autopsy.core.result import (
     RCAResult,
     PipelineResult,
     DriftSeverity,
+    HallucinationResult,
 )
 
 # Registries
 from drift_autopsy.registry import DetectorRegistry, LocalizerRegistry, RCARegistry
 
 # Import detectors to trigger registration
-from drift_autopsy.detectors import KSTest, PSI, MMD, DomainClassifier, CBPE
+from drift_autopsy.detectors import (
+    KSTest,
+    PSI,
+    MMD,
+    DomainClassifier,
+    CBPE,
+    HallucinationRiskDetector,
+)
 
 # Import localizers
 from drift_autopsy.localizers import UnivariateLocalizer
@@ -46,6 +54,8 @@ __all__ = [
     "MMD",
     "DomainClassifier",
     "CBPE",
+    "HallucinationRiskDetector",
+    "HallucinationResult",
     "UnivariateLocalizer",
     "SHAPAnalyzer",
     "DataLoader",

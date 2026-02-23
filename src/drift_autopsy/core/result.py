@@ -3,6 +3,7 @@
 from dataclasses import dataclass, field
 from typing import Dict, List, Any, Optional
 from enum import Enum
+import numpy as np
 
 
 class DriftSeverity(Enum):
@@ -138,4 +139,93 @@ class PipelineResult:
             "rca": self.rca.to_dict() if self.rca else None,
             "execution_time_seconds": self.execution_time_seconds,
             "metadata": self.metadata,
+        }
+
+
+@dataclass
+class HallucinationResult:
+    """
+    Per-sample result from hallucination risk detection.
+
+    A sample is flagged as hallucination-risk when the model is
+    simultaneously *high-confidence* and *far from the training
+    distribution* — the canonical "confident but likely wrong" regime.
+
+    Attributes:
+        detector_name:          Name of the density method used.
+        hallucination_scores:   Per-sample composite risk score in [0, 1].
+                                score = confidence * normalised_distance.
+        is_hallucination_risk:  Boolean mask — True where both
+                                confidence > confidence_threshold AND
+                                normalised_distance > distance_threshold.
+        confidence_scores:      Raw per-sample confidence (max softmax prob
+                                or 1 - predictive entropy).
+        density_scores:         Raw per-sample distance from training
+                                distribution (already normalised to [0, 1]
+                                using the reference 95th-percentile).
+        n_hallucination_risk:   Number of flagged samples.
+        hallucination_rate:     Fraction of test samples flagged in [0, 1].
+        severity:               Aggregate severity derived from rate.
+        confidence_threshold:   Threshold applied to confidence scores.
+        distance_threshold:     Normalised distance threshold applied.
+        metadata:               Extra method-specific diagnostics.
+    """
+
+    detector_name: str
+    hallucination_scores: np.ndarray
+    is_hallucination_risk: np.ndarray
+    confidence_scores: np.ndarray
+    density_scores: np.ndarray
+    n_hallucination_risk: int
+    hallucination_rate: float
+    severity: "DriftSeverity"
+    confidence_threshold: float
+    distance_threshold: float
+    metadata: Dict[str, Any] = field(default_factory=dict)
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to JSON-serialisable dictionary."""
+        return {
+            "detector_name": self.detector_name,
+            "n_hallucination_risk": self.n_hallucination_risk,
+            "hallucination_rate": float(self.hallucination_rate),
+            "severity": self.severity.value,
+            "confidence_threshold": self.confidence_threshold,
+            "distance_threshold": self.distance_threshold,
+            "hallucination_scores": self.hallucination_scores.tolist(),
+            "is_hallucination_risk": self.is_hallucination_risk.tolist(),
+            "confidence_scores": self.confidence_scores.tolist(),
+            "density_scores": self.density_scores.tolist(),
+            "metadata": self.metadata,
+        }
+
+    # ------------------------------------------------------------------
+    # Convenience views
+    # ------------------------------------------------------------------
+
+    @property
+    def flagged_indices(self) -> np.ndarray:
+        """Indices of samples flagged as hallucination-risk."""
+        return np.where(self.is_hallucination_risk)[0]
+
+    @property
+    def quadrant_counts(self) -> Dict[str, int]:
+        """
+        Break the test set into the four interpretability quadrants.
+
+        Returns:
+            {
+              "safe":               low distance + high confidence,
+              "uncertain_honest":   high distance + low confidence,
+              "hallucination_risk": high distance + high confidence,
+              "uncertain_safe":     low distance + low confidence,
+            }
+        """
+        high_conf = self.confidence_scores >= self.confidence_threshold
+        high_dist = self.density_scores >= self.distance_threshold
+        return {
+            "safe":               int(np.sum(~high_dist & high_conf)),
+            "uncertain_honest":   int(np.sum(high_dist & ~high_conf)),
+            "hallucination_risk": int(np.sum(high_dist & high_conf)),
+            "uncertain_safe":     int(np.sum(~high_dist & ~high_conf)),
         }
